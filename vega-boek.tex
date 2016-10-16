@@ -1,0 +1,130 @@
+\documentclass[%
+a4paper,
+%twoside,
+12pt
+]{article}
+
+% encoding, font, language
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+\usepackage[dutch]{babel}
+
+\usepackage{nicefrac}
+
+\usepackage[
+    nowarnings,
+    %myconfig
+]
+{xcookybooky}
+
+\definecolor{mygreen}{rgb}{0,.2,0}
+\DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
+
+\setRecipeColors
+{%
+    recipename = mygreen,
+    ing = black,
+    inghead = black,
+    prep,
+    prephead,
+    hint,
+    hinthead,
+    numeration = mygreen,
+}
+
+\setcounter{secnumdepth}{1}
+\renewcommand*{\recipesection}[2][]
+{%
+    \subsection[#1]{#2}
+}
+\renewcommand{\subsectionmark}[1]
+{% no implementation to display the section name instead
+}
+
+
+%%%%%%%%%%
+% hyperref
+\usepackage{hyperref}    % must be the last package
+\hypersetup{%
+    pdfauthor            = {Steven Speek},
+    pdftitle             = {Vegetarisch kookboek},
+    pdfsubject           = {recepten},
+    pdfstartview         = {FitV},
+    pdfview              = {FitH},
+    pdfpagemode          = {UseNone}, % Options; UseNone, UseOutlines
+    bookmarksopen        = {true},
+    pdfpagetransition    = {Glitter},
+    colorlinks           = {true},
+    linkcolor            = {black},
+    urlcolor             = {black}
+    citecolor            = {black},
+    filecolor            = {black},
+}
+% hyperref
+%%%%%%%%%%
+
+
+
+\begin{document}
+
+\title{Vegetarisch kookboek}
+\author{Steven Speek}
+\maketitle
+
+\tableofcontents
+
+\setHeadlines
+{% translation
+    inghead = Ingredi\"{e}nten,
+    prephead = Bereiding,
+    hinthead = Tip,
+    continuationhead = Voortzetting,
+    continuationfoot = Gaat verder op volgende bladzijde,
+    portionvalue = personen,
+}
+
+\newpage
+
+\begin{recipe}
+[ %
+    preparationtime = {\unit[$3/4$]{h}},
+    bakingtime = {\unit[20]{min} koken, \unit[10]{min} grillen},
+    portion = {\portion{2}},
+    calory,
+    source = \href{http://www.smulweb.nl/community/pagina/zusanova}{Zusanova}
+]
+{Vegetarische hutspot}
+
+    \ingredients
+    {%
+        \unit[500]{g} & aardappelen\\
+        \unit[500]{g} & winterpeen of wortelen \\
+        2 & grote uien \\
+        \unit[1.5]{el} & gembersiroop \\
+        \unit[0.5]{el} & sambal \\
+        \unit[200]{g} & geitenkaas in plakken \\
+        half bosje & koriander \\
+        \unit[1]{el} & plantaardige olie \\
+         & zout \\
+    }
+
+    \preparation
+    {%
+        \step Schil de aardappelen en snij ze in gelijke stukken.
+        Schil de wortelen en snij ze in even grote stukken als de aardappelen.
+        De uien in ringen snijden. Hak de koriander fijn.
+        \step Kook de aardappelen met de wortel en zonder de ui in 20 minuten gaar. Doe er een beetje zout bij.
+        \step Fruit de uiringen in de olie.
+        \step Giet de aardappelen met de wortelen af. Stamp de ui, de sambal en gembersiroop door het aardappel mengsel.
+        \step Schep dit mengsel in de een ovenschaal. Verdeel de plakken geitenkaas over de hutspot.
+        Druppel nog wat gembersiroop op de geitenkaas.
+        Grill dit net zolang tot de geitenkaas een licht bruine gloed krijgt.
+        \step Serveer de schotel met de gehakte koriander.
+    }
+
+\end{recipe}
+
+
+
+\end{document}
