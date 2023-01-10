@@ -1,4 +1,4 @@
 latexmk
 texlive-publishers
 texlive-fonts-extra
-texlive-lang-dutch
+texlive-lang-european
