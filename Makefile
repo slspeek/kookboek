@@ -1,8 +1,9 @@
 export PATH:=/sbin:/usr/sbin:${PATH}
-RUNLATEX=pdflatex --interaction batchmode vega-boek.tex
+MAINNAME=kookboek
+RUNLATEX=pdflatex --interaction batchmode $(MAINNAME).tex
 
 viewpdf:
-		$(RUNLATEX); $(RUNLATEX);xpdf vega-boek.pdf
+		$(RUNLATEX); $(RUNLATEX);xpdf $(MAINNAME).pdf
 
 prepare:
 		sudo apt-get install $$(cat debian-dependencies)
