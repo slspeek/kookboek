@@ -11,7 +11,7 @@ jobs:
       - name: Create build directory
         run: mkdir build
       - name: pdflatex first run
-        uses: docker://leplus/latex
+        uses: docker://leplusorg/latex
         with:
           args: pdflatex --interaction batchmode -output-directory build kookboek.tex
       - name: list files
