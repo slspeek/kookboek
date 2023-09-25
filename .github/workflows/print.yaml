@@ -1,9 +1,9 @@
-name: Prints
+name: Print
 
 on: push
 
 jobs:
-  pandoc:
+  print:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -11,7 +11,7 @@ jobs:
       - name: Create build directory
         run: mkdir build
       - name: pdflatex first run
-        uses: leplus/latex
+        uses: docker://leplus/latex
         with:
           args: pdflatex --interaction batchmode -output-directory build kookboek.tex
       - name: list files
@@ -20,7 +20,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: |
-            build/samenvatting.pdf
-            build/begrippen.pdf
-            build/oefeningen.pdf
+          files: build/kookboek.pdf
+            
