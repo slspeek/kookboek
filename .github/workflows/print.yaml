@@ -13,12 +13,16 @@ jobs:
       - name: pdflatex first run
         uses: docker://leplusorg/latex
         with:
-          args: pdflatex --interaction batchmode -output-directory build kookboek.tex
+          args: bash -c "pdflatex --interaction batchmode kookboek.tex; ls -l kookboek.pdf"
+      - name: pdflatex second run
+        uses: docker://leplusorg/latex
+        with:
+          args: bash -c "pdflatex --interaction batchmode kookboek.tex; ls -l kookboek.pdf"
       - name: list files
         run: ls -lR build
       - name: Release generated pdf
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: build/kookboek.pdf
+          files: kookboek.pdf
             
