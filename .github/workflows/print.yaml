@@ -1,0 +1,26 @@
+name: Prints
+
+on: push
+
+jobs:
+  pandoc:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create build directory
+        run: mkdir build
+      - name: pdflatex first run
+        uses: leplus/latex
+        with:
+          args: pdflatex --interaction batchmode -output-directory build kookboek.tex
+      - name: list files
+        run: ls -lR build
+      - name: Release generated pdf
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            build/samenvatting.pdf
+            build/begrippen.pdf
+            build/oefeningen.pdf
