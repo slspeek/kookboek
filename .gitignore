@@ -12,6 +12,8 @@
 *.cb
 *.cb2
 
+mt8.tmp
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
