@@ -1,5 +1,5 @@
 MAINNAME=kookboek
-RUNLATEX=docker run -i --rm -t --workdir=/tmp --user="$(shell id -u):$(shell id -g)" --net=none  -v "$(shell pwd):/tmp" leplusorg/latex:sha-4a17317 bash -c "pdflatex  --interaction batchmode $(MAINNAME).tex ; ls -l kookboek.pdf"
+RUNLATEX=docker run --rm -t --workdir=/tmp --user="$(shell id -u):$(shell id -g)" --net=none  -v "$(shell pwd):/tmp" leplusorg/latex:sha-4a17317 bash -c "pdflatex  --interaction batchmode $(MAINNAME).tex ; ls -l kookboek.pdf"
 
 default: clean print
 
