@@ -8,4 +8,4 @@ Makkelijke recepten voor alledag
 
 ## Printen kookboek-a5boekje.pdf
 
-Zet de paginainstellingen en 'liggend' en stel tweezijdigheid in op 'lange zijde'.
+Zet de paginainstellingen op 'liggend' en stel tweezijdigheid in op 'lange zijde'.
