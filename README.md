@@ -5,3 +5,7 @@ Makkelijke recepten voor alledag
 
 
 ![QR kookboek](qr_kookboek_pdf_latest_release.png)
+
+## Printen kookboek-a5boekje.pdf
+
+Zet de paginainstellingen en 'liggend' en stel tweezijdigheid in op 'lange zijde'.
