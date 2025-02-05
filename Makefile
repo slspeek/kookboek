@@ -15,6 +15,7 @@ viewpdf:
 
 booklet: print
 		$(RUN_BOOKLET)
+		mv kookboek-book.pdf kookboek-a5boekje.pdf
 
 clean:
 		rm tex/*.aux  *.aux *.lg *.4* *.image.* *.htoc *.html *.css *.dvi *.haux *.pdf *.log *.out *.idv *.tmp *.xref *.toc; exit 0

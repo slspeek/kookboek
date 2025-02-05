@@ -16,5 +16,5 @@ jobs:
         with:
           files: |
             kookboek.pdf
-            kookboek-book.pdf
+            kookboek-a5boekje.pdf
               
