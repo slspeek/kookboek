@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Run makefile
         run: make booklet
-      - name: Release generated pdf
-        uses: softprops/action-gh-release@v1
+      - name: Release generated pdf files
+        uses: softprops/action-gh-release@v2.2.1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
