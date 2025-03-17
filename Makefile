@@ -1,16 +1,23 @@
 MAINNAME=kookboek
-RUNLATEX_IMAGE=docker run --rm -t --workdir=/tmp --user="$(shell id -u):$(shell id -g)" --net=none  -v "$(shell pwd):/tmp" leplusorg/latex:sha-4a17317 
-RUNLATEX=$(RUNLATEX_IMAGE)pdflatex  --interaction batchmode $(MAINNAME).tex
-RUN_BOOKLET=$(RUNLATEX_IMAGE)pdfbook2 --paper=a4paper $(MAINNAME).pdf
+LATEX_IMAGE=leplusorg/latex:sha-4a17317
+RUN_LATEX_IMAGE=docker run \
+						--rm \
+						-t --workdir=/tmp \
+						--user="$(shell id -u):$(shell id -g)" \
+						--net=none \
+						-v "$(shell pwd):/tmp" \
+						$(LATEX_IMAGE)
+RUN_LATEX=$(RUN_LATEX_IMAGE) pdflatex  --interaction batchmode $(MAINNAME).tex
+RUN_BOOKLET=$(RUN_LATEX_IMAGE) pdfbook2 --paper=a4paper $(MAINNAME).pdf
 
 
 default: clean print
 
 print:
-		$(RUNLATEX); $(RUNLATEX)
+		$(RUN_LATEX); $(RUN_LATEX)
 
 viewpdf: 
-		$(RUNLATEX)
+		$(RUN_LATEX)
 		open $(MAINNAME).pdf
 
 booklet: print
