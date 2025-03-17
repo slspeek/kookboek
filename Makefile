@@ -1,6 +1,6 @@
 MAINNAME=kookboek
 RUNLATEX_IMAGE=docker run --rm -t --workdir=/tmp --user="$(shell id -u):$(shell id -g)" --net=none  -v "$(shell pwd):/tmp" leplusorg/latex:sha-4a17317 
-RUNLATEX=$(RUNLATEX_IMAGE)bash -c "pdflatex  --interaction batchmode $(MAINNAME).tex ; ls -l kookboek.pdf"
+RUNLATEX=$(RUNLATEX_IMAGE)bash -c "pdflatex  --interaction batchmode $(MAINNAME).tex"
 RUN_BOOKLET=$(RUNLATEX_IMAGE)pdfbook2 --paper=a4paper kookboek.pdf
 
 
