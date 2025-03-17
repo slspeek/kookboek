@@ -17,7 +17,21 @@ a4paper,
     %myconfig
 ]
 {xcookybooky}
-
+% workaround for https://github.com/SvenHarder/xcookybooky/issues/13
+\renewcommand{\step}
+{%
+    \stepcounter{step}%
+    \lettrine
+    [%
+        lines=2,
+        lhang=0,          % space into margin, value between 0 and 1
+        loversize=0.15,   % enlarges the height of the capital
+        slope=0em,
+        findent=1em,      % gap between capital and intended text
+        nindent=0em       % shifts all intended lines, begining with the second line
+    ]{\thestep}{}%
+}
+% end workaround for https://github.com/SvenHarder/xcookybooky/issues/13
 \definecolor{mygreen}{rgb}{0,.2,0}
 \DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
 
