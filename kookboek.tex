@@ -2,7 +2,7 @@
 a4paper,
 %twoside,
 12pt
-]{article}
+]{book}
 
 % encoding, font, language
 \usepackage[T1]{fontenc}
@@ -32,7 +32,7 @@ a4paper,
     ]{\thestep}{}%
 }
 % end workaround for https://github.com/SvenHarder/xcookybooky/issues/13
-\definecolor{mygreen}{rgb}{0,.2,0}
+
 \DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
 
 \setRecipeColors
@@ -56,6 +56,11 @@ a4paper,
 {% no implementation to display the section name instead
 }
 
+\usepackage{fancyhdr} 
+% \fancyhf{}
+\pagestyle{fancy}   
+\fancyfoot{}
+\fancyfoot[LE,RO]{\thepage}
 
 %%%%%%%%%%
 % hyperref
@@ -78,14 +83,6 @@ a4paper,
 % hyperref
 %%%%%%%%%%
 
-% fancyhdr for page numbers at bottom center
-\usepackage{fancyhdr} 
-\fancyhf{}
-\cfoot{\thepage}
-\pagestyle{fancy}   
-
-
-
 \begin{document}
 
 \setHeadlines
@@ -100,13 +97,13 @@ a4paper,
 
 \title{Kookboek}
 \author{Steven Speek}
-\maketitle
 
-\pagebreak
+\maketitle
 
 \tableofcontents
 
-\section{Hoofdgerechten}
+\chapter{Hoofdgerechten}
+
 \include{./tex/andijvie-rijstsalade}
 \include{./tex/andijvie-stamppot}
 \include{./tex/broccoli-met-sojasaus}
@@ -127,24 +124,31 @@ a4paper,
 \include{./tex/tahoe-met-ketjap}
 \include{./tex/zoete-aardappel-spinazie-stampot}
 
-\section{Bijgerechten}
+\chapter{Bijgerechten}
+
 \include{./tex/gebakken-aardappelen}
 \include{./tex/knoflook-champignons}
 
-\section{Soepen}
+\chapter{Soepen}
+
 \include{./tex/knolselderijsoep}
 
-\section{Salades}
+\chapter{Salades}
+
 \include{./tex/bietensalade}
 \include{./tex/appel-komkommer-salade}
 \include{./tex/rucola-tomaat-salade}
 \include{./tex/roedjak}
 
-\section{Sauzen}
+\chapter{Sauzen}
+
 \include{./tex/pindasaus}
 \include{./tex/vinegrette}
 
 \appendix
+
+\chapter{Maten en gewichten}
+
 \include{./tex/maten}
 
 \end{document}
