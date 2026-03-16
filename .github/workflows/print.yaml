@@ -15,6 +15,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            kookboek.pdf
-            kookboek-a5boekje.pdf
+            pdf/kookboek.pdf
+            pdf/kookboek-a5boekje.pdf
               
