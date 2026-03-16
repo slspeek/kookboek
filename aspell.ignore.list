@@ -1,4 +1,4 @@
-personal_ws-1.1 nl 76 utf-8
+personal_ws-1.1 nl 79 utf-8
 Bakery
 Bathgate
 Berty
@@ -13,6 +13,7 @@ Roedjak
 Rudolph's
 Stamppotmaandag
 Studentenkookboek
+Taboul
 UseNone
 Vegafoodness
 bakingtemperature
@@ -66,10 +67,12 @@ quichedeeg
 rec
 recipe
 recipename
+request
 rijstsalade
 roedjak
 slope
 spinazietaart
+taboul
 taug
 tomato
 true
