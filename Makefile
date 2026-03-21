@@ -12,18 +12,23 @@ RUN_LATEX_IMAGE=docker run \
 RUN_LATEX=$(RUN_LATEX_IMAGE) pdflatex  --interaction batchmode --output-directory=/tmp/pdf $(MAINNAME).tex
 RUN_BOOKLET=$(RUN_LATEX_IMAGE) sh -c 'cd /tmp/$(TARGET) && pdfbook2 --paper=a4paper $(MAINNAME).pdf'
 SPELLCHECK_CMD=aspell check -t -p $(PWD)/aspell.ignore.list -l nl 
+LINKCHECK_CMD=$(HOME)/.local/bin/pdfx -c $(TARGET)/$(MAINNAME).pdf
 
 
 default: clean print
 
 install_deps:
 	sudo apt update
-	sudo apt install -y aspell aspell-nl		
+	sudo apt install -y aspell aspell-nl pipx
+	pipx install pdfx
 
 spellcheck:
 	for FILE in $(MAINNAME).tex $(shell ls tex/*.tex); do \
 		$(SPELLCHECK_CMD) $$FILE; \
 	done
+
+linkcheck: print
+	$(LINKCHECK_CMD)
 
 print:
 	mkdir -p $(TARGET)
