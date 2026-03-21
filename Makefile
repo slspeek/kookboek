@@ -42,6 +42,5 @@ booklet: print
 	$(RUN_BOOKLET)
 	mv $(TARGET)/$(MAINNAME)-book.pdf $(TARGET)/$(MAINNAME)-a5boekje.pdf
 
-
 clean:
 	rm -rf $(TARGET)
