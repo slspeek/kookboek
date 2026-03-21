@@ -31,7 +31,7 @@ print:
 
 viewpdf: 
 	$(RUN_LATEX)
-	open $(MAINNAME).pdf
+	open $(TARGET)/$(MAINNAME).pdf
 
 booklet: print
 	$(RUN_BOOKLET)
