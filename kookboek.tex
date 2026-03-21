@@ -63,9 +63,11 @@ openany
 \fancyfoot{}
 \fancyfoot[LE,RO]{\thepage}
 
+\newcommand{\linkto}[2]{\hyperref[#1]{#2 (zie pagina \pageref{#1})}}
+
 %%%%%%%%%%
 % hyperref
-\usepackage{hyperref}    % must be the last package
+\usepackage[hidelinks]{hyperref}    % must be the last package
 \hypersetup{%
     pdfauthor            = {Steven Speek},
     pdftitle             = {Kookboek},
@@ -75,9 +77,9 @@ openany
     pdfpagemode          = {UseNone}, % Options; UseNone, UseOutlines
     bookmarksopen        = {true},
     pdfpagetransition    = {Glitter},
-    colorlinks           = {true},
-    linkcolor            = {blue},
-    urlcolor             = {blue},
+    % colorlinks           = {true},
+    % linkcolor            = {blue},
+    % urlcolor             = {blue},
     citecolor            = {black},
     filecolor            = {black},
 }
