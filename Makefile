@@ -35,6 +35,7 @@ print:
 	$(RUN_LATEX); $(RUN_LATEX)
 
 viewpdf: 
+	mkdir -p $(TARGET)
 	$(RUN_LATEX)
 	open $(TARGET)/$(MAINNAME).pdf
 
