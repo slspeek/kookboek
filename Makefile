@@ -32,7 +32,9 @@ linkcheck: print
 
 print:
 	mkdir -p $(TARGET)
-	$(RUN_LATEX); $(RUN_LATEX)
+    # Needs to run 3 times to get the pagenumbers in table content right
+    # https://tex.stackexchange.com/questions/115921/wrong-numeration-in-toc-longer-then-one-page
+	$(RUN_LATEX); $(RUN_LATEX); $(RUN_LATEX)
 
 viewpdf: 
 	mkdir -p $(TARGET)
