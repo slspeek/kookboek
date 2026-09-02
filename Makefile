@@ -12,6 +12,7 @@ RUN_LATEX_IMAGE=docker run \
 RUN_LATEX=$(RUN_LATEX_IMAGE) pdflatex  --interaction batchmode --output-directory=/tmp/pdf $(MAINNAME).tex
 RUN_BOOKLET=$(RUN_LATEX_IMAGE) sh -c 'cd /tmp/$(TARGET) && pdfbook2 --paper=a4paper $(MAINNAME).pdf'
 SPELLCHECK_CMD=aspell check -t -p $(PWD)/aspell.ignore.list -l nl 
+SPELLCHECK_NON_INTERACTIVE_CMD=aspell list -t -p $(PWD)/aspell.ignore.list -l nl
 LINKCHECK_CMD=$(HOME)/.local/bin/pdfx -c $(TARGET)/$(MAINNAME).pdf
 
 
@@ -25,6 +26,11 @@ install_deps:
 spellcheck:
 	for FILE in $(MAINNAME).tex $(shell ls tex/*.tex); do \
 		$(SPELLCHECK_CMD) $$FILE; \
+	done
+
+spellcheck-non-interactive:
+	for FILE in $(MAINNAME).tex $(shell ls tex/*.tex); do \
+		! $(SPELLCHECK_NON_INTERACTIVE_CMD) < $$FILE |grep -q '.' || exit 1; \
 	done
 
 linkcheck: print
