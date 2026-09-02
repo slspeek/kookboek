@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: make install_deps
       - name: Run makefile
         run: make booklet
       - name: Release generated pdf files
